@@ -1,0 +1,5 @@
+git (100:2.34.0-1) UNRELEASED; urgency=medium
+
+  * https://github.com/git/git/releases/tag/v2.34.0
+
+ -- Wong Hoi Sing Edison <hswong3i@gmail.com>  Tue, 16 Nov 2021 09:15:44 +0800
