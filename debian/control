@@ -1,0 +1,47 @@
+Source: git
+Section: vcs
+Priority: optional
+Standards-Version: 4.5.0
+Maintainer: Wong Hoi Sing Edison <hswong3i@gmail.com>
+Homepage: https://github.com/git/git/tags
+Vcs-Browser: https://github.com/alvistack/git-git
+Vcs-Git: https://github.com/alvistack/git-git.git
+Build-Depends:
+ debhelper,
+ debhelper-compat (= 10),
+ gettext,
+ libcurl4-gnutls-dev,
+ liberror-perl,
+ libexpat1-dev,
+ libmailtools-perl,
+ libpcre2-dev,
+ libperl-dev,
+ libssl-dev,
+ zlib1g-dev,
+
+Package: git
+Architecture: amd64
+Description: Fast, scalable, distributed revision control system
+ Git is a fast, scalable, distributed revision control system with an
+ unusually rich command set that provides both high-level operations and
+ full access to internals.
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+ ${perl:Depends},
+ liberror-perl,
+ libmailtools-perl,
+Provides:
+ git-all,
+ git-completion,
+ git-core,
+ git-cvs,
+ git-daemon-run,
+ git-daemon-sysvinit,
+ git-el,
+ git-email,
+ git-gui,
+ git-mediawiki,
+ git-svn,
+ gitk,
+ gitweb,
