@@ -1,0 +1,32 @@
+#!/usr/bin/make -f
+
+SEHLL := /bin/bash
+
+override_dh_auto_build:
+	dh_auto_build -- \
+		DEFAULT_EDITOR=editor \
+		DEFAULT_PAGER=pager \
+		DESTDIR=debian/tmp \
+		NO_PERL_CPAN_FALLBACKS=1 \
+		PYTHON_PATH=/usr/bin/python3 \
+		SHELL_PATH=/bin/sh
+
+override_dh_auto_install:
+	dh_auto_install --destdir=debian/tmp -- \
+		NO_CROSS_DIRECTORY_HARDLINKS=1 \
+		NO_INSTALL_HARDLINKS=1 \
+		PYTHON_PATH=/usr/bin/python3 \
+		SHELL_PATH=/bin/sh \
+		gitexecdir=/usr/lib/git-core \
+		libexecdir=/usr/lib/git-core \
+		prefix=/usr
+	install -Dpm755 -d debian/tmp/usr/share/bash-completion/completions
+	install -Dpm644 contrib/completion/git-completion.bash debian/tmp/usr/share/bash-completion/completions/git
+	rm -rf debian/tmp/usr/lib/git-core/git-p4
+
+override_dh_auto_test:
+
+override_dh_auto_clean:
+
+%:
+	dh $@ --without autoreconf
