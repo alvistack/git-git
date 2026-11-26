@@ -1,0 +1,4 @@
+git: copyright-without-copyright-notice
+git: initial-upload-closes-no-bugs
+git: no-manual-page
+git: zero-byte-file-in-doc-directory
